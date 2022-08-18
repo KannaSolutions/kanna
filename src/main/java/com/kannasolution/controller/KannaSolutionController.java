@@ -15,17 +15,17 @@ public class KannaSolutionController {
 	@Autowired
 	private MailSendingService mailSendingService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/home")
 	public String kannaSolutionPage() {
 		return "KannaSolutions";
 	}
 
-	@RequestMapping(value = "/Registration", method = RequestMethod.GET)
+	@RequestMapping(value = "/Registration")
 	public String registrationPage() {
 		return "RegistrationForm";
 	}
 
-	@RequestMapping(value = "/RegistrationSave", method = RequestMethod.POST)
+	@RequestMapping(value = "/RegistrationSave")
 	public String saveRegisterData(@ModelAttribute(name = "form") Form form, Model model) {
 		try {
 			mailSendingService.sendMail(form);
